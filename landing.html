@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html><head>
+    <title>ApplyTo.jobs: Customize resume and cover letters</title>
+    <meta name="description" content="Boost your job prospects with ApplyTo.jobs. Tailor your resume and cover letter, enhance skills, and optimize your LinkedIn profile.">
+    <meta name="keywords" content="Job Application, Tailored Resume, Custom Cover Letters, Skills Development, LinkedIn Profile, Job Search">
+    <meta name="robots" content="index, follow">
+    <link rel="shortcut icon" href="/graphics/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/graphics/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/graphics/favicon-16x16.png">
+    <meta name="author" content="Shanaya Malik">
+    <meta name="language" content="English">
+    <link rel="canonical" href="https://www.applyto.jobs/" />
+    <meta name="google-site-verification" content="z42kL2jlOb6l7TlbCiD7a4TFt49QM6rVHTIUkS9e9pg" />
+    <!-- preview card: -->
+    <meta property="og:title" content="Customize your resume and cover letters" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.applyto.jobs/" />
+    <meta property="og:image" content="https://www.applyto.jobs/graphics/screenshot.png" />
+    <meta property="og:description" content="Boost your job application chances by tailoring your resume and cover letters, learn skills development tips, get a LinkedIn profile summary, and job search terms." />
+    <meta property="og:site_name" content="ApplyTo.jobs" />
+    <meta property="og:locale" content="en_US" />
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #c1f9fa; /*#80daeb;*/
+            color: #000;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        @font-face {
+            font-family: 'CircularStdBlack';
+            src: url('/graphics/CircularStd-Black.otf');
+        }
+        h1, h2, h3 {
+            text-align: center;
+            font-family: CircularStdBlack, Arial, Helvetica, sans-serif;
+            font-weight: normal;
+        }
+        form {
+            background-color: #D8F5C3;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        textarea {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            height: 120px;
+        }
+        .submitbutton {
+            display: flex;
+            justify-content: center;
+        }
+        input[type="submit"] {
+            background-color: #009c6c; /*#5CDB95;*/
+            color: white;
+            cursor: pointer;
+            padding: 20px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        a {
+            color: rgb(18 161 192);
+            text-decoration: none;
+        }
+        #donatebutton {
+            position: fixed;
+            right: 5px;
+            top: 5px;
+            z-index: 9999;
+        }
+        @media (orientation: portrait) { /* mobile */
+            body {
+                font-size: 200%;
+            }
+            .container {
+                padding: 5px;
+            }
+            textarea {
+                padding: 5px;
+            }
+            #donatebutton {
+                transform: scale(2); /* Double size */
+                top: 95%; /* Adjust position */
+                right: 10%;
+            }
+        }
+        .custom-file-upload {
+            padding: 6px 12px;
+            cursor: pointer;
+            background-color: lightgray;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            text-align: center;
+        }
+    </style>
+</head><body>
+    <div id="donatebutton">
+        <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+        <script type='text/javascript'>
+            kofiwidget2.init('Buy me a coffee?', '#75c2e6', 'Y8Y1M0UA5');
+            kofiwidget2.draw();
+        </script>
+    </div>
+
+    <div class="container">
+        <h1>ApplyTo.jobs</h1>
+<!--
+<h3>Temporarily out of service. Please check back in a few days.</h3>
+-->
+        <h3>Maximize your job application chances, for free</h3>
+
+        <form id='theform' method='post' action='/' enctype='multipart/form-data'>
+            <h3>Customize your resume and cover letter, get skills development
+                tips, a LinkedIn profile summary, and job search terms</h3>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="file" class="custom-file-upload">Upload .pdf, .doc,
+                .docx, or .txt</label>
+            <input type="file" id="file" name="file" style="display: none;"
+                accept=".pdf,.PDF,.doc,.DOC,.docx,.txt,.TXT"><br>
+
+            <textarea id="res" name="resume"
+                placeholder="Paste your resume here....">{{ resume }}</textarea><br>
+
+            <label for="jd">Job description:</label> (optionally, include the
+                company's "About Us" text at the end for better results)<br>
+            <textarea id="jd" name="jobdescription"
+                placeholder="Paste a job description here...."></textarea><br>
+
+            <label for="coverLetterLength">Cover letter length:</label>
+            <select id="coverLetterLength" name="length">
+                <option value="short">Concise (200 words)</option>
+                <option value="medium">Standard (325 words)</option>
+                <option value="long" selected>Comprehensive (400 words)</option>
+            </select>
+            <br><br>
+
+            <div class="submitbutton">
+                <input type="submit" value="Get tailored resume and cover letter">
+            </div>
+        </form>
+
+        <p style='text-align: center;'><!--We recommend <b><a href="https://simplify.jobs" target="_blank"
+            >Simplify.jobs</a></b> for job search and application form automation.-->
+            We have served {{ "{:,}".format(served|int) }} job seekers since June 2023.
+            <!--Special thanks to <a href="https://youtu.be/vZauEwMxWq4?t=60"
+            target="_blank">Jack Roberts</a> for inspiration.--></p>
+
+        <!--<h3>Contact support, feedback, or suggestions: <a
+            href="mailto:shanaya@applyto.jobs?subject=ApplyTo.jobs"
+            >email us</a></h3>-->
+
+        <p><small><b>Privacy Policy:</b> Your data is stored temporarily for
+        performance improvement and automatically deleted after five days. It is
+        not shared with third parties, and no cookies or tracking technologies are
+        used. <a href="/privacypolicy" target="_blank">June 13, 2024 Version</a></small></p>
+    </div>
+
+    <script>
+        document.getElementById('file').addEventListener('change', function(e) {
+            document.getElementById('theform').submit();
+        });
+    </script>
+
+    <br><br><br> <!-- space for the donation button on mobile -->
+</body>
+</html>
